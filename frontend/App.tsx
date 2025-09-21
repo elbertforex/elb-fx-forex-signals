@@ -250,11 +250,11 @@ export default function App() {
       {/* Plans & Pricing Section */}
       <section id="plans" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="pixel-text-3xl font-bold text-center mb-16 text-white">
-            Plans & <span className="text-green-400 glow-text-green">Pricing</span>
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">
+            Plans & <span className="text-green-400">Pricing</span>
           </h2>
           
-          <div className="pixel-grid pixel-grid-3 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
                 name: "Beginner",
@@ -281,10 +281,6 @@ export default function App() {
               }
             ].map((plan, index) => (
               <Card key={plan.name} className={`pixel-card relative transform transition-all duration-500 ${
-                plan.popular 
-                  ? 'border-green-400 animate-pixel-border' 
-                  : 'border-green-400'
-              } ${
                 visibleSections.includes('plans') ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
               }`} style={{ animationDelay: `${index * 200}ms` }}>
                 {plan.popular && (
@@ -335,15 +331,15 @@ export default function App() {
           <div className={`max-w-4xl mx-auto text-center transform transition-all duration-1000 ${
             visibleSections.includes('about') ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
+            <h2 className="text-3xl font-bold mb-8 text-white">
               Meet <span className="text-green-400">Elbert</span>
             </h2>
             
-            <div className="w-32 h-32 bg-green-500/20 rounded-full mx-auto mb-8 flex items-center justify-center border-2 border-green-500/30 hover:border-green-400/50 transition-all duration-500 hover:scale-110 hover:rotate-12 hover:bg-green-500/30">
-              <TrendingUp size={48} className="text-green-400 animate-pulse" />
+            <div className="w-32 h-32 bg-green-400/20 border border-green-400 mx-auto mb-8 flex items-center justify-center">
+              <TrendingUp size={48} className="text-green-400" />
             </div>
             
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-base text-white leading-relaxed max-w-3xl mx-auto">
               I'm Elbert, a 13-year-old trader passionate about forex, technology, and the financial markets. 
               Beyond trading, I'm also a digital entrepreneur and software developer. With ElbFx, my mission 
               is to provide clear, actionable signals to help traders of all levels achieve their financial goals.
@@ -358,8 +354,8 @@ export default function App() {
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="pixel-text-3xl font-bold mb-12 text-white">
-            Ready to <span className="text-green-400 glow-text-green">Start Trading?</span>
+          <h2 className="text-3xl font-bold mb-12 text-white">
+            Ready to <span className="text-green-400">Start Trading?</span>
           </h2>
           
           <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center max-w-md mx-auto transform transition-all duration-1000 ${
@@ -385,11 +381,11 @@ export default function App() {
       {/* Footer */}
       <footer className="py-8 border-t-2 border-green-400 bg-black">
         <div className="container mx-auto px-4 text-center">
-          <div className="pixel-text-2xl font-bold text-green-400 mb-4">
-            <span className="text-white">Elb</span><span className="glow-text-green">Fx</span>
+          <div className="text-xl font-bold text-green-400 mb-4">
+            <span className="text-white">Elb</span>Fx
           </div>
-          <p className="pixel-text-xs text-white mb-2">© 2025 ElbFx. All rights reserved.</p>
-          <p className="pixel-text-xs text-green-400">
+          <p className="text-xs text-white mb-2">© 2025 ElbFx. All rights reserved.</p>
+          <p className="text-xs text-green-400">
             Disclaimer: Trading forex involves risk. Signals are for educational purposes only.
           </p>
         </div>
