@@ -244,14 +244,17 @@ export default function App() {
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="pixel-divider"></div>
+
       {/* Plans & Pricing Section */}
       <section id="plans" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
-            Plans & <span className="text-green-400">Pricing</span>
+          <h2 className="pixel-text-3xl font-bold text-center mb-16 text-white">
+            Plans & <span className="text-green-400 glow-text-green">Pricing</span>
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="pixel-grid pixel-grid-3 max-w-6xl mx-auto">
             {[
               {
                 name: "Beginner",
@@ -277,51 +280,46 @@ export default function App() {
                 popular: false
               }
             ].map((plan, index) => (
-              <Card key={plan.name} className={`relative bg-black/50 border-2 transition-all duration-500 hover:scale-110 hover:-translate-y-2 transform ${
+              <Card key={plan.name} className={`pixel-card relative transform transition-all duration-500 ${
                 plan.popular 
-                  ? 'border-green-400 shadow-xl shadow-green-500/40 animate-pulse' 
-                  : 'border-green-500/30 hover:border-green-400/50 hover:shadow-xl hover:shadow-green-500/20'
+                  ? 'border-green-400 animate-pixel-border' 
+                  : 'border-green-400'
               } ${
                 visibleSections.includes('plans') ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
               }`} style={{ animationDelay: `${index * 200}ms` }}>
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-green-500 text-black px-4 py-1 text-sm font-bold rounded-full animate-bounce shadow-lg shadow-green-500/50">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="pixel-button pixel-text-xs px-4 py-1">
                       MOST POPULAR
                     </span>
                   </div>
                 )}
                 
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl text-white mb-2">{plan.name}</CardTitle>
-                  <div className="text-3xl font-bold text-green-400 mb-1">
+                <CardHeader className="text-center p-6">
+                  <CardTitle className="pixel-text-2xl text-white mb-4">{plan.name}</CardTitle>
+                  <div className="pixel-text-3xl text-green-400 glow-text-green mb-2">
                     {plan.price}
                   </div>
                   {plan.priceNote && (
-                    <div className="text-gray-400 text-sm">{plan.priceNote}</div>
+                    <div className="pixel-text-xs text-white mb-2">{plan.priceNote}</div>
                   )}
-                  <div className="text-green-300 font-semibold mt-2">
+                  <div className="pixel-text-sm text-green-400 mt-4">
                     {plan.signals}
                   </div>
                 </CardHeader>
                 
-                <CardContent className="space-y-3">
+                <CardContent className="space-y-4 p-6">
                   {plan.features.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                      <span className="text-gray-300">{feature}</span>
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-green-400"></div>
+                      <span className="pixel-text-xs text-white">{feature}</span>
                     </div>
                   ))}
                   
                   <Button 
                     onClick={() => window.open(whatsappLink, '_blank')}
-                    className={`w-full mt-6 font-bold py-3 rounded-none border-2 transition-all duration-500 hover:scale-105 hover:-translate-y-1 hover:shadow-xl ${
-                      plan.popular
-                        ? 'bg-green-500 hover:bg-green-600 text-black border-green-400 hover:shadow-green-500/50'
-                        : 'bg-transparent hover:bg-green-500/20 text-green-400 border-green-500 hover:border-green-400 hover:shadow-green-500/30'
-                    }`}
+                    className="pixel-button w-full mt-6"
                   >
-                    <MessageCircle className="mr-2 animate-pulse" />
                     Contact Admin to Join
                   </Button>
                 </CardContent>
@@ -354,11 +352,14 @@ export default function App() {
         </div>
       </section>
 
+      {/* Section Divider */}
+      <div className="pixel-divider"></div>
+
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
-            Ready to <span className="text-green-400">Start Trading?</span>
+          <h2 className="pixel-text-3xl font-bold mb-12 text-white">
+            Ready to <span className="text-green-400 glow-text-green">Start Trading?</span>
           </h2>
           
           <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center max-w-md mx-auto transform transition-all duration-1000 ${
@@ -366,17 +367,15 @@ export default function App() {
           }`}>
             <Button
               onClick={() => window.open(whatsappLink, '_blank')}
-              className="bg-green-500 hover:bg-green-600 text-black font-bold px-8 py-4 rounded-none border-2 border-green-400 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/50 hover:scale-110 hover:-translate-y-2 w-full sm:w-auto"
+              className="pixel-button w-full sm:w-auto"
             >
-              <MessageCircle className="mr-2 animate-bounce" />
               WhatsApp
             </Button>
             
             <Button
               onClick={() => window.open(telegramLink, '_blank')}
-              className="bg-transparent hover:bg-green-500/20 text-green-400 font-bold px-8 py-4 rounded-none border-2 border-green-500 hover:border-green-400 transition-all duration-500 hover:shadow-xl hover:shadow-green-500/30 hover:scale-110 hover:-translate-y-2 w-full sm:w-auto"
+              className="pixel-button w-full sm:w-auto"
             >
-              <Send className="mr-2 animate-bounce delay-200" />
               Telegram
             </Button>
           </div>
@@ -384,14 +383,14 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 border-t border-green-500/20 bg-black/50">
+      <footer className="py-8 border-t-2 border-green-400 bg-black">
         <div className="container mx-auto px-4 text-center">
-          <div className="text-2xl font-bold text-green-400 mb-4 hover:scale-110 transition-transform duration-300">
-            <span className="text-white glow-text">Elb</span><span className="glow-text-green">Fx</span>
+          <div className="pixel-text-2xl font-bold text-green-400 mb-4">
+            <span className="text-white">Elb</span><span className="glow-text-green">Fx</span>
           </div>
-          <p className="text-gray-400 mb-2">© 2025 ElbFx. All rights reserved.</p>
-          <p className="text-sm text-gray-500">
-            <strong>Disclaimer:</strong> Trading forex involves risk. Signals are for educational purposes only.
+          <p className="pixel-text-xs text-white mb-2">© 2025 ElbFx. All rights reserved.</p>
+          <p className="pixel-text-xs text-green-400">
+            Disclaimer: Trading forex involves risk. Signals are for educational purposes only.
           </p>
         </div>
       </footer>
